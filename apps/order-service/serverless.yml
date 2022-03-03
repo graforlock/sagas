@@ -1,0 +1,17 @@
+	
+# serverless.yml
+ 
+service: order-service
+ 
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: ew-west-1
+ 
+functions:
+  app:
+    handler: handlers/index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
